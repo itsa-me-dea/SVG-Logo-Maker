@@ -1,43 +1,45 @@
-class CreateSVG {
-  // inquirer prompts
-  constructor(text, fontColor, shape, shapeColor) {
+// Shape class utilizes constructor to define what it means to be a shape
+class ChosenShape {
+  constructor(text, fontColor, shapeColor) {
     this.text = text;
     this.fontColor = fontColor;
-    this.shape = shape;
-    this.shapeColor = shapeColor;
+    // this.shape = shape;
+    this.shapeColor = shapeColor;  
   }
+  // setColor(shapeColor) {
+  //   this.shapeColor = shapeColor;
+  // }
+}
 
-  // determines which svg will be generated upon shape chosen
-  chooseShape() {
-    const shapeSVG = ""
-    if (this.shape === "Circle") {
-      shapeSVG = `<circle cx="150" cy="150" r="50%" fill="${this.shapeColor}" />
+// Triangle class inherits properties defined in Shape class
+class Circle extends ChosenShape {
+  render() {
+    // Returns polygon with color input
+    return `<circle cx="150" cy="100" r="95" fill="${this.shapeColor}" />
 
-      <text x="51%" y="57%" font-size="60" text-anchor="middle" fill="${this.fontColor}">${this.text}</text>`;
-    } if (this.shape === "Triangle") {
-      shapeSVG = `<polygon points="150,0 0,300 300,300" fill="${this.shapeColor}" />
-
-      <text x="50%" y="70%" font-size="60" text-anchor="middle" fill="${this.fontColor}">${this.text}</text>`;
-    } if (this.shape === "Square") {
-      shapeSVG = `<rect width="100%" height="100%" fill="${this.shapeColor}" />
-
-      <text x="51%" y="55%" font-size="60" text-anchor="middle" fill="${this.fontColor}">${this.text}</text>`;
-    }
-    console.log(shapeSVG);
-    return shapeSVG
+    <text x="50%" y="60%" font-size="60" text-anchor="middle" fill="${this.fontColor}">${this.text}</text>`;
   }
 }
 
-// const SVGinputs = new CreateSVG(text, fontColor, shape, shapeColor);
+// Square class inherits properties defined in Shape class
+class Triangle extends ChosenShape {
+  render() {
+    // Returns polygon with color input
+    return `<polygon points="150,10 10,190 290,190" fill="${this.shapeColor}" />
 
-// template literal for svg file
-const generateLogo = ({ text, fontColor, shape, shapeColor }) =>
-`<svg version="1.1" width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+    <text x="50%" y="70%" font-size="60" text-anchor="middle" fill="${this.fontColor}">${this.text}</text>`;
+  }
+}
 
-<!-- https://www.w3schools.com/graphics/svg_rect.asp -->
-${new CreateSVG(text, fontColor, shape, shapeColor)}
+// Circle class inherits properties defined in Shape class
+class Square extends ChosenShape {
+  render() {
+    // Returns polygon with color input
+    return `<rect x="10" y="10" width="190" height="190" fill="${this.shapeColor}" />
 
-</svg>`;
+    <text x="35%" y="62%" font-size="60" text-anchor="middle" fill="${this.fontColor}">${this.text}</text>`;
+  }
+}
 
-module.exports = generateLogo;
-module.exports = new CreateSVG;
+// Exports classes (Square, Triangle, Circle)
+module.exports = { Circle, Triangle, Square };
