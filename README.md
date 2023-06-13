@@ -21,7 +21,7 @@ Download or fork this package. From there, open the integrated terminal (this is
 
 ## Usage
 
-In the integrated table, run `node index` and answer the prompts. (**NOTE**: For your desired text, enter no more than 3 characters. For color related questions, please enter a color or hex code.) After answering the prompts, the [`generated-logo.svg`](./Develop/gen-logo/generated-logo.svg) will be generated in the `/Develop/gen-logo/` folder.
+In the integrated table, run `node index` and answer the prompts. (**NOTE**: For your desired text, enter no more than 3 characters. For color related questions, please enter a color or hex code.) After answering the prompts, the [`generated-logo.svg`](./Develop/gen-logo/generated-logo.svg) will be generated in the `/Develop/gen-logo/` folder. If you wish to create multiple SVGs, save your newly generated SVG file under a new name.
 
 A **walkthrough video** can be downloaded from the [Images](./Images/screen-capture-NodeREADMEgen.mp4) folder.
 
@@ -60,7 +60,7 @@ In general, follow the "fork-and-pull" Git workflow.
 
 ## Tests
 
-None.
+Open a terminal under the `/Develop/lib/` folder. Run `npm run test`.
 
 ## Questions
 
