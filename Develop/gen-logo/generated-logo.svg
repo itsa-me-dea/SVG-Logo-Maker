@@ -1,8 +1,8 @@
 <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 
     <!-- https://www.w3schools.com/graphics/svg_rect.asp -->
-    <rect x="10" y="10" width="190" height="190" fill="blue" />
+    <circle cx="150" cy="100" r="95" fill="pink" />
 
-    <text x="35%" y="62%" font-size="60" text-anchor="middle" fill="red">red</text>
+    <text x="50%" y="60%" font-size="60" text-anchor="middle" fill="white">wut</text>
     
     </svg>

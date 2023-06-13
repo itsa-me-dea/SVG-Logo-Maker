@@ -64,7 +64,7 @@ function writeToFile(filename, answers) {
     
     </svg>`;
 
-    const filePath = "./examples/generated-logo.svg";
+    const filePath = "./gen-logo/generated-logo.svg";
 
     fs.writeFile(filePath, SVGinfo, function (err) {
         err ? console.log(err) : console.log("Sucessfully created " + filename)
