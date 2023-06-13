@@ -40,56 +40,36 @@ const questions = () => {
 };
 
 
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-function writeToFile(answers) {
-    // let SVGfile = "";
+// Create a function to write SVG file
+function writeToFile(filename, answers) {
     let SVGshape = "";
     if (answers.shape === "Circle") {
         SVGshape = new Circle();
-    } if (answers.shape === "Triangle") {
+    } else if (answers.shape === "Triangle") {
         SVGshape = new Triangle();
     } else {
         SVGshape = new Square(); 
     }
-    console.log(SVGshape);
 
-    // const SVGfile = ({ text, fontColor, SVGshape, shapeColor }) =>
-    // `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-
-    // <!-- https://www.w3schools.com/graphics/svg_rect.asp -->
-    // ${SVGshape} fill="${shapeColor}" />
-  
-    // <text x="50%" y="60%" font-size="60" text-anchor="middle" fill="${fontColor}">${text}</text>
-  
-    // </svg>`;
-
+    // set user input values for shape classes
+    SVGshape.setColor(answers.shapeColor);
+    SVGshape.setText(answers.text);
+    SVGshape.setTextColor(answers.fontColor);
+   
+    // create text for svg file
     SVGinfo = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 
     <!-- https://www.w3schools.com/graphics/svg_rect.asp -->
-    ${SVGshape}
+    ${SVGshape.render()}
     
     </svg>`;
 
-    const filename = "./examples/generated-logo.svg";
+    const filePath = "./examples/generated-logo.svg";
 
-    fs.writeFile(filename, SVGinfo, function (err) {
-        err ? console.log(err) : console.log("Sucessfully created generated-logo.svg")
+    fs.writeFile(filePath, SVGinfo, function (err) {
+        err ? console.log(err) : console.log("Sucessfully created " + filename)
     });
 }
 
-// TODO: Create a function to initialize app
-// const init = () => {
-//     questions()
-//       // Use writeFile method imported from fs.promises to use promises instead of
-//       // a callback function
-//       .then((answers) => writeFile('generated-logo.svg', generateSVG.generateLogo(answers)))
-//       .then(() => console.log('Successfully wrote to generated-logo.svg'))
-//       .catch((err) => console.error(err));
-//   };
-
-// // Function call to initialize app
-// init();
-
+// run questions when prompted with node
 questions();
-module.exports = questions;
